@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.sahmed8</category>
+    <title>SimpleThreshold</title>
+    <description>
+        Apply a threshold to a 3D signed-short NIfTI image using ITK BinaryThresholdImageFilter. Every voxel in the range [lowThreshold, highThreshold] is set to insideValue and all other voxels to outsideValue.
+    </description>
+    <version>1.0.0</version>
+    <documentation-url>N/A</documentation-url>
+    <license>MIT License</license>
+    <contributor>Sabbir Ahmed</contributor>
+    <acknowledgements>
+        The SimpleThreshold algorithm in this command module was implemented using Insight Toolkit (ITK).
+    </acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Thresholded Output</description>
+        </image>
+    </parameters>
+
+    <parameters>
+        <label>
+            Threshold Parameters
+        </label>
+        <description>
+            Parameters for controlling the simple threshold filter.
+        </description>
+
+        <double>
+            <name>lowThreshold</name>
+            <longflag>lowThreshold</longflag>
+            <label>Low Threshold</label>
+            <description>Lower threshold</description>
+            <default>0</default>
+            <constraints>
+                <minimum>-32768</minimum>
+                <maximum>32767</maximum>
+                <step>1</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>highThreshold</name>
+            <longflag>highThreshold</longflag>
+            <label>High Threshold</label>
+            <description>Upper threshold (inclusive)</description>
+            <default>0</default>
+            <constraints>
+                <minimum>-32768</minimum>
+                <maximum>32767</maximum>
+                <step>1</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>outsideValue</name>
+            <longflag>outsideValue</longflag>
+            <label>Outside Value</label>
+            <description>Value assigned outside the threshold range</description>
+            <default>0</default>
+            <constraints>
+                <minimum>-32768</minimum>
+                <maximum>32767</maximum>
+                <step>1</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>insideValue</name>
+            <longflag>insideValue</longflag>
+            <label>Inside Value</label>
+            <description>Value assigned inside the threshold range</description>
+            <default>0</default>
+            <constraints>
+                <minimum>-32768</minimum>
+                <maximum>32767</maximum>
+                <step>1</step>
+            </constraints>
+        </double>
+
+    </parameters>
+</executable>

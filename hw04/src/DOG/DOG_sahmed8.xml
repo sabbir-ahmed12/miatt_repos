@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.sahmed8</category>
+    <title>Difference of Gaussians</title>
+    <description>Applies a Difference of Gaussians (DoG) filter to a 3D volume.</description>
+    <version>1.0</version>
+    <documentation-url>N/A</documentation-url>
+    <license>MIT License</license>
+    <contributor>Sabbir Ahmed</contributor>
+    <acknowledgements>This command module used Insight Toolkit (ITK) to implement DoG filter.</acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image type="scalar">
+            <name>inputVolume</name>
+            <label>Input Volume</label>
+            <longflag>inputVolume</longflag>
+            <channel>input</channel>
+            <description>Input 3D volume</description>
+        </image>
+        <image type="scalar">
+            <name>outputVolume</name>
+            <label>Output Volume</label>
+            <longflag>outputVolume</longflag>
+            <channel>output</channel>
+            <description>Edge-enhanced DOG-filtered 3D output image</description>
+        </image>
+    </parameters>
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Parameters for the Gaussian filters</description>
+        <float>
+            <name>sigma1</name>
+            <longflag>sigma1</longflag>
+            <label>Sigma 1</label>
+            <description>Sigma for the first (narrower) Gaussian. Must differ from Sigma 2.</description>
+            <default>1.0</default>
+            <constraints>
+                <minimum>0.1</minimum>
+                <maximum>10.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </float>
+        <float>
+            <name>sigma2</name>
+            <longflag>sigma2</longflag>
+            <label>Sigma 2</label>
+            <description>Sigma for the second (wider) Gaussian. Must differ from Sigma 1.</description>
+            <default>2.0</default>
+            <constraints>
+                <minimum>0.1</minimum>
+                <maximum>10.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </float>
+    </parameters>
+</executable>

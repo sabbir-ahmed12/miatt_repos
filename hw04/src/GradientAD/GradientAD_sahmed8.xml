@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.sahmed8</category>
+    <title>Gradient Anisotropic Diffusion</title>
+    <description>Applies Gradient Anisotropic Diffusion image filter to reduce noise.</description>
+    <version>1.0.0</version>
+    <documentation-url>N/A</documentation-url>
+    <license>MIT License</license>
+    <contributor>Sabbir Ahmed</contributor>
+    <acknowledgements>
+        This command line module uses Insight Toolkit (ITK) to implement Gradient Anisotropic Diffusion image filter.
+    </acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+        </image>
+    </parameters>
+    <parameters>
+        <label>Filtering</label>
+        <description>Filter parameters</description>
+        <double>
+            <name>conductance</name>
+            <longflag>conductance</longflag>
+            <label>Conductance</label>
+            <description>Controls the sensitivity to features. Higher values smooth more across edges.</description>
+            <default>3.0</default>
+            <constraints>
+                <minimum>0.1</minimum>
+                <maximum>10.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+        <double>
+            <name>timeStep</name>
+            <longflag>timeStep</longflag>
+            <label>Time Step</label>
+            <description>Integration time step. Must be less than 0.5/6 for 3D stability.</description>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>0.08</maximum>
+                <step>0.001</step>
+            </constraints>
+        </double>
+        <integer>
+            <name>iterations</name>
+            <longflag>iterations</longflag>
+            <label>Iterations</label>
+            <description>Number of diffusion iterations to perform.</description>
+            <default>5</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>100</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+    </parameters>
+</executable>

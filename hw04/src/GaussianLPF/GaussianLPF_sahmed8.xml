@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.sahmed8</category>
+    <title>GaussianLPF</title>
+    <description>
+        Applies a 3D Gaussian low-pass filter to an input volume using itk::RecursiveGaussianImageFilter with the same sigma in X, Y, and Z directions.
+    </description>
+    <version>1.0</version>
+    <documentation-url>N/A</documentation-url>
+    <license>MIT License</license>
+    <contributor>Sabbir Ahmed</contributor>
+    <acknowledgements>This command module used Insight Toolkit (ITK) to implement Gaussian low pass filter.</acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+
+        <image type="scalar" fileExtensions=".nii,.nii.gz,.nrrd,.mha,.mhd">
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input 3D image volume</description>
+        </image>
+
+        <image type="scalar" fileExtensions=".nii,.nii.gz,.nrrd,.mha,.mhd">
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Filtered 3D output image volume</description>
+        </image>
+    </parameters>
+
+    <parameters>
+        <label>Filtering</label>
+        <description>Gaussian low-pass filter parameters</description>
+
+        <double>
+            <name>sigma</name>
+            <label>Sigma</label>
+            <longflag>sigma</longflag>
+            <default>1.0</default>
+            <description>
+                Standard deviation of the Gaussian kernel. Must be greater than 0. The same sigma is applied in X, Y, and Z.
+            </description>
+            <constraints>
+                <minimum>0.1</minimum>
+                <maximum>10.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+</executable>
