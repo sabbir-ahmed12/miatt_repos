@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>MIATT.HW05.sahmed8</category>
+  <title>Stripe Filter Program</title>
+  <description>Create stripes in 3D reference volume.</description>
+  <contributor>Hans J. Johnson, Sabbir Ahmed</contributor>
+  <version>0.0.2</version>
+  <acknowledgements>
+    This program uses Insight Toolkit (ITK) library.
+  </acknowledgements>
+
+  <parameters>
+    <label>IO</label>
+    <description>Input and Output Images</description>
+    <integer>
+      <name>dimension</name>
+      <longflag>dimension</longflag>
+      <description>Image dimension (1 to 6)</description>
+      <label>Image Dimension</label>
+      <default>1</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>6</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <image>
+      <name>inputImage</name>
+      <longflag>inputImage</longflag>
+      <label>Input Image Volume</label>
+      <description>Path to the input image.</description>
+      <channel>input</channel>
+    </image>
+    <image>
+      <name>outputImage</name>
+      <longflag>outputImage</longflag>
+      <label>Output Image Volume</label>
+      <description>Path to the output image (created image with stripes).</description>
+      <channel>output</channel>
+    </image>
+  </parameters>
+
+  <parameters>
+    <label>Stripe Settings</label>
+    <description>Parameters defining the stripe geometry and intensity</description>
+    <integer>
+      <name>stripeDirection</name>
+      <longflag>stripeDirection</longflag>
+      <description>The axis to stripe along (0-based index)</description>
+      <label>Stripe Direction</label>
+      <default>0</default>
+      <constraints>
+        <minimum>0</minimum>
+        <maximum>5</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <integer>
+      <name>stripeValue</name>
+      <longflag>stripeValue</longflag>
+      <description>The pixel intensity value for the stripe [0, 10000]</description>
+      <label>Stripe Value</label>
+      <default>10</default>
+      <constraints>
+        <minimum>0</minimum>
+        <maximum>10000</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <integer>
+      <name>stripeWidth</name>
+      <longflag>stripeWidth</longflag>
+      <description>The width of the stripe in voxels (must be strictly less than stripeDistance)</description>
+      <label>Stripe Width</label>
+      <default>1</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>10000</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <integer>
+      <name>stripeDistance</name>
+      <longflag>stripeDistance</longflag>
+      <description>The distance in voxels from the start of one stripe to the next (must be strictly greater than stripeWidth)</description>
+      <label>Stripe Distance</label>
+      <default>3</default>
+      <constraints>
+        <minimum>2</minimum>
+        <maximum>10000</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+  </parameters>
+</executable>
