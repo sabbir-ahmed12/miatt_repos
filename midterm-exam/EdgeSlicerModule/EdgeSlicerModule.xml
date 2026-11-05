@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Filtering.FeatureDetection</category>
+  <title>Edge Detection Filters</title>
+  <description>A Slicer Module to implement Sobel, LoG, and GM edge producing filters for 3D volumes.</description>
+  <version>1.0</version>
+  <documentation-url>NA</documentation-url>
+  <license>NA</license>
+  <contributor>Sabbir Ahmed (sabbir-ahmed@uiowa.edu)</contributor>
+  <acknowledgements>Derived from ITK Filtering Examples.</acknowledgements>
+  <parameters>
+    <label>Input/Output Volumes</label>
+    <description>Selection of Input and Output volumes</description>
+    <image>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <longflag>inputVolume</longflag>
+      <description>Input image to be filtered.</description>
+    </image>
+    <image>
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <longflag>outputVolume</longflag>
+      <description>Filtered output image.</description>
+    </image>
+  </parameters>
+  <parameters>
+    <label>Select Edge Detectors</label>
+    <description>Parameters for the filter</description>
+    <string-enumeration>
+      <name>filterKind</name>
+      <label>Edge Filter Kind</label>
+      <channel>input</channel>
+      <longflag>filterKind</longflag>
+      <description>Choose the edge detection algorithm.</description>
+      <element>Sobel</element>
+      <element>LoG</element>
+      <element>GM</element>
+      <default>Sobel</default>
+    </string-enumeration>
+  </parameters>
+</executable>

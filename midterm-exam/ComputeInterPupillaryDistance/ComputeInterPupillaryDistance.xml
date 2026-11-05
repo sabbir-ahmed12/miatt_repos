@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>
+   MIATT.sahmed8.IPD
+  </category>
+  <title>
+  Physical Distance Calculator
+  </title>
+  <description>
+     Compute interpupillary distance (i.e. the distance between two eyes) in physical space.
+  </description>
+  <version>1.0</version>
+  <documentation-url>NA</documentation-url>
+  <license>NA</license>
+  <contributor>Sabbir Ahmed (sabbir-ahmed@uiowa.edu)</contributor>
+  <acknowledgements>This command module was derived from http://www.itk.org/Wiki/ITK/Examples</acknowledgements>
+  <parameters>
+    <label>Input/Output Volumes</label>
+    <description>Selection of Input and Output volumes</description>
+    <image>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <longflag>inputVolume</longflag>
+      <channel>input</channel>
+      <default>/nfsscratch/opt/ece5490/data/Eyes.nrrd</default>
+    </image>
+  </parameters>
+
+</executable>

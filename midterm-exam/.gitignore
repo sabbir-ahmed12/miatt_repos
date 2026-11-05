@@ -1,0 +1,43 @@
+*.[oa]
+# Compiled Static libraries
+*.a
+*.config
+*.dylib
+*.la
+*.lai
+*.lo
+*.nhdr
+*.nii.gz
+*.nrrd
+# Compiled Object files
+*.o
+*.obj
+*.orig
+*.pyc
+*.raw
+*.sample
+*.slo
+# Compiled Dynamic libraries
+*.so
+*.swp
+*ExternalSources*
+# emacs backups
+*.bak
+*~
+.DS_Store
+.ExternalData_MD5*
+.RData
+.RDataTmp
+.Rhistory
+._*
+.clang_complete
+.emacs.desktop
+.idea
+cmake-build-*
+cmake-travis-*
+.svn
+CMakeCache.txt
+CMakeFiles/*
+crash*
+
+Testing/Temporary/LastTest.log
