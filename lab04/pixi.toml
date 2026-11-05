@@ -1,0 +1,25 @@
+[workspace]
+name = "register-circles"
+version = "0.1.0"
+description = "ITK-based 2D circle registration — ECE 5940 Lab 04"
+authors = ["Sabbir Ahmed <sabbir.ahmed845@gmail.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+cmake        = ">=3.20"
+ninja        = ">=1.11"
+cxx-compiler = ">=1.0"
+libitk-devel = ">=5.4"
+python       = ">=3.11"
+matplotlib   = ">=3.7"
+pillow       = ">=10.0"
+
+[tasks]
+configure = "cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release"
+build     = { cmd = "cmake --build build", depends-on = ["configure"] }
+generate  = { cmd = "./build/generate_images img1.nrrd img2.nrrd", depends-on = ["build"] }
+register  = { cmd = "./build/register_circles img1.nrrd img2.nrrd registered.nrrd convergence.csv", depends-on = ["generate"] }
+gif       = { cmd = "python scripts/plot_convergence.py convergence.csv convergence.gif", depends-on = ["register"] }
+test      = { cmd = "ctest --test-dir build --output-on-failure", depends-on = ["build"] }
+clean     = "rm -rf build build-debug img1.nrrd img2.nrrd registered.nrrd convergence.csv convergence.gif"
